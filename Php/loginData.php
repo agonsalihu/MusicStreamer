@@ -17,7 +17,7 @@ if (isset($_POST['loginBtn'])) {
         if ($_SESSION["userRole"] == 1) {
             $userName_cookie = 'username_cookie';
             $userName_cookie_value = $_SESSION['username'];
-            setcookie($userName_cookie, $userName_cookie_value, "/");
+            setcookie($userName_cookie, $userName_cookie_value);
             header("Location:../Views/adminView.php");
         }else{
             header("Location:../Views/home.php");

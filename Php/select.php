@@ -8,7 +8,7 @@ class SelectData
     public $data;
     public function selectUserById($conn, $userId)
     {
-        $sql = "SELECT * FROM user u WHERE u.ID = :userId;";
+        $sql = "SELECT * FROM user u WHERE u.Id = :userId;";
         $statement = $conn->getConnection()->prepare($sql);
 
         $statement->bindParam(":userId", $userId);
@@ -16,7 +16,7 @@ class SelectData
             $statement->execute();
             // echo "Data has been selected successfully";
             $result = $statement->fetch(PDO::FETCH_ASSOC);
-            $data['ID'] = $result['ID'];
+            $data['Id'] = $result['Id'];
             $data['Username'] = $result['Username'];
             $data['Email'] = $result['Email'];
             $data['Role'] = $result['Role'];
@@ -114,7 +114,7 @@ class SelectData
             echo "<form method='POST' action='../Views/editUser.php'>";
             echo '<table>
             <tr>
-            <th>ID</th>
+            <th>Id</th>
             <th>Username</th>
             <th>Email</th>
             <th>Role</th>
@@ -124,7 +124,7 @@ class SelectData
             $index = 1;
             foreach ($result as $row) {
                 echo '<tr>
-                        <th data-label="User_ID" id="ID' . $index . '">' . $row["ID"] . '</th>
+                        <th data-label="User_Id" id="Id' . $index . '">' . $row["Id"] . '</th>
                         <th data-label="User_Name">' . $row["Username"] . '</th>
                         <th data-label="User_Email">' . $row["Email"] . '</th>
                         <th data-label="User_Role">' . $row["Role"] . '</th>
@@ -157,7 +157,7 @@ class SelectData
     }
     public function editUser($conn, $userId, $userEmail, $userRole)
     {
-        $sql = "UPDATE user u SET u.Email = :email, u.Role = :role WHERE u.ID = :id;";
+        $sql = "UPDATE user u SET u.Email = :email, u.Role = :role WHERE u.Id = :id;";
         $statement = $conn->getConnection()->prepare($sql);
         $statement->bindParam(":email", $userEmail);
         $statement->bindParam(":id", $userId);
@@ -171,7 +171,7 @@ class SelectData
     }
     public function deleteUser($conn, $userId)
     {
-        $sql = "DELETE FROM user WHERE user.ID = :id;";
+        $sql = "DELETE FROM user WHERE user.Id = :id;";
         $statement = $conn->getConnection()->prepare($sql);
         $statement->bindParam(":id", $userId);
         try {
@@ -184,7 +184,7 @@ class SelectData
     public function resetAutoIncrement($conn)
     {
         $sql = "SET @autoid :=0;
-        UPDATE user SET user.ID = @autoid := (@autoid+1);
+        UPDATE user SET user.Id = @autoid := (@autoid+1);
         ALTER TABLE user Auto_Increment = 1;";
         $statement = $conn->getConnection()->prepare($sql);
         try {
@@ -221,17 +221,17 @@ class SelectData
     }
     /*Querys for Songs */
     public $songData;
-    public function selectSongById($conn, $songID)
+    public function selectSongById($conn, $songId)
     {
-        $sql = "SELECT * FROM music m WHERE m.SongID = :songID;";
+        $sql = "SELECT * FROM music m WHERE m.SongId = :songId;";
         $statement = $conn->getConnection()->prepare($sql);
 
-        $statement->bindParam(":songID", $songID);
+        $statement->bindParam(":songId", $songId);
         try {
             $statement->execute();
             // echo "Data has been selected successfully";
             $result = $statement->fetch(PDO::FETCH_ASSOC);
-            $songData['ID'] = $result['SongID'];
+            $songData['Id'] = $result['SongId'];
             $songData['Title'] = $result['Title'];
             $songData['Artist'] = $result['Artist'];
             $songData['AudioPath'] = $result['AudioPath'];
@@ -269,7 +269,7 @@ class SelectData
             echo "<form method='POST' action='../Views/editSong.php'>";
             echo '<table>
             <tr>
-            <th>ID</th>
+            <th>Id</th>
             <th>Artist</th>
             <th>Title</th>
             <th>Image Cover</th>
@@ -280,7 +280,7 @@ class SelectData
             $index = 1;
             foreach ($result as $row) {
                 echo '<tr>
-                        <td data-label="Song_ID" id="ID' . $index . '">' . $row["SongID"] . '</td>
+                        <td data-label="Song_Id" id="Id' . $index . '">' . $row["SongId"] . '</td>
                         <td data-label="Song_Title">' . $row["Artist"] . '</td>
                         <td data-label="Artist_Name">' . $row["Title"] . '</td>
                         <td data-label="Song_Img"><img class="miniImg" src=' . $row["ImgPath"] . '></td>
@@ -391,7 +391,7 @@ class SelectData
     }
     public function editSong($conn, $songId, $songArtist, $songTitle, $songAudioPath, $songImgPath)
     {
-        $sql = "UPDATE music m SET m.Artist = :artist, m.Title = :title, m.AudioPath = :audioPath, m.ImgPath = :imgPath  WHERE m.SongID = :id;";
+        $sql = "UPDATE music m SET m.Artist = :artist, m.Title = :title, m.AudioPath = :audioPath, m.ImgPath = :imgPath  WHERE m.SongId = :id;";
         $statement = $conn->getConnection()->prepare($sql);
         $statement->bindParam(":id", $songId);
         $statement->bindParam(":artist", $songArtist);
@@ -405,11 +405,11 @@ class SelectData
             echo "Error: " . $e->getMessage();
         }
     }
-    public function deleteSong($conn, $songID)
+    public function deleteSong($conn, $songId)
     {
-        $sql = "DELETE FROM music WHERE music.SongID = :id;";
+        $sql = "DELETE FROM music WHERE music.SongId = :id;";
         $statement = $conn->getConnection()->prepare($sql);
-        $statement->bindParam(":id", $songID);
+        $statement->bindParam(":id", $songId);
         try {
             $statement->execute();
             $result = $statement->fetch(PDO::FETCH_ASSOC);
@@ -420,7 +420,7 @@ class SelectData
     public function resetAutoIncrementSong($conn)
     {
         $sql = "SET @autoid :=0;
-        UPDATE music SET music.SongID = @autoid := (@autoid+1);
+        UPDATE music SET music.SongId = @autoid := (@autoid+1);
         ALTER TABLE music Auto_Increment = 1;";
         $statement = $conn->getConnection()->prepare($sql);
         try {

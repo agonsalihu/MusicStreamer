@@ -16,4 +16,21 @@ class InsertData
             echo "Error: " . $e->getMessage();
         }
     }  
+
+    /*Music Insert Querys */
+    public function insertMusic($conn, $songAudioPath, $songImgPath, $songTitle, $songArtist)
+    {
+        $sql = "INSERT INTO music (AudioPath, ImgPath, Title, Artist) VALUES (:audioPath, :imgPath, :title, :artist);";
+        $statement = $conn->getConnection()->prepare($sql);
+
+        $statement->bindParam(":audioPath", $songAudioPath);
+        $statement->bindParam(":imgPath", $songImgPath);
+        $statement->bindParam(":title", $songTitle);
+        $statement->bindParam(":artist", $songArtist);
+        try {
+            $statement->execute();
+        } catch (\Throwable $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 }

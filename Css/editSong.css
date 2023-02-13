@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    color: #fff;
+  }
+  body {
+    background-color: #181818;
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
+  .logo img {
+    width: 18vw;
+  }
+  .wrapper{
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+  }
+  .editSongContainer h2{
+      color: #ffffff;
+      font-size: 35px;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }
+  .infoLabel{
+    display: flex;
+    justify-content: start;
+    margin-bottom: 5px;
+}
+  form input,button{
+      margin: 0 auto;
+      display: flex;
+      margin-bottom: 20px;
+  }
+  input{
+      display: flex;
+      margin: 0 auto;
+      padding: 15px 40px;
+      border-radius: 7px;
+      font-size: 17px;
+      background-color: #2e2e2e;
+      border: none;
+      outline: none;
+      transition: all ease 0.5s;
+      border: 3px solid #0f3034;
+  }
+  input::placeholder{
+      color: rgba(241, 241, 241, 0.5);
+      padding: 0;
+      font-size: 17px;
+  }
+  input:focus {
+      box-shadow: 0 0 10px rgba(29, 185, 185, 0.5);
+      transition: all ease 0.5s;
+  }
+  :disabled{
+    background-color: #0a0a0a;
+    cursor: not-allowed;
+  }
+  button{
+      color: #fff;
+      display: flex;
+      margin: 0 auto;
+      margin-top: 10px;
+      padding: 10px 40px;
+      border-radius: 7px;
+      background-color: #0f3034;
+      border: none;
+      outline: none;
+      transition: all ease 0.5s;
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 20px;
+  }
+  button:hover {
+      box-shadow: 0 0 10px rgba(29, 185, 185, 0.5);
+      transition: all ease 0.5s;
+      cursor: pointer;
+  }
+  .errorMsg {
+      justify-content: center;
+      color: #BE0000;
+      font-size: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  .errPlaceholder::placeholder {
+      color: #BE0000 !important;
+  }
+  @media only screen and (max-width: 900px) {
+      .logo img {
+          width: 40vw;
+        }
+  }
