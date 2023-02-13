@@ -1,6 +1,6 @@
 <?php
-include_once '../PHP/connect.php';
-include_once '../PHP/select.php';
+include_once '../Php/connect.php';
+include_once '../Php/select.php';
 $conn = new DBConfig;
 $select = new SelectData;
 
@@ -12,7 +12,7 @@ $select = new SelectData;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
-  <link rel="stylesheet" href="../CSS/dashboard.css" />
+  <link rel="stylesheet" href="../Css/dashboard.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
@@ -190,8 +190,8 @@ $select = new SelectData;
   <?php
   include '../Components/miniPlayer.php';
   ?>
-  <script src="../JS/dashboard.js"></script>
-  <script src="../JS/sliders.js"></script>
+  <script src="../Js/dashboard.js"></script>
+  <script src="../Js/sliders.js"></script>
 </body>
 
 </html>

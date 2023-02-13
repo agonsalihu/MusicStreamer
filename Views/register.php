@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register</title>
-  <link rel="stylesheet" href="../CSS/register.css" />
+  <link rel="stylesheet" href="../Css/register.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet" />
 </head>
 
@@ -59,7 +59,7 @@
         <div class="registerTitle">
           <h2>register an account:</h2>
         </div>
-        <form action="../PHP/registerData.php" method="POST" onsubmit="return validateRegister()">
+        <form action="../Php/registerData.php" method="POST" onsubmit="return validateRegister()">
           <div class="input">
             <label for="text" id="errorMsg" class="errorMsg">*Your Name, Username or Password is Incorrect</label>
             <input id="username" name="username" type="text" placeholder="Username" onchange="validateUsername()">
@@ -70,7 +70,7 @@
         </form>
       </div>
     </div>
-    <script src="../JS/validate.js">
+    <script src="../Js/validate.js">
     </script>
     <script>
       var checkRE = document.getElementById("checkRE");
