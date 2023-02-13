@@ -24,43 +24,43 @@ if (isset($_POST['createSongBtn'])) {
     $artistName = $_POST['createSongArtist'];
     $songName = $_POST['createSongTitle'];
     $check = getimagesize($_FILES["createImagePath"]["tmp_name"]);
-    if ($check !== false) {
-        $uploadOk = 1;
-    } else {
-        $uploadOk = 0;
-        $errMsg = "FileNotImg";
-        createErrCookie($errMsg);
-        header("Location:../Views/adminView.php");
-    }
-    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-        $uploadOk = 0;
-        $errMsg = "WrongImgFormat";
-        createErrCookie($errMsg);
-        header("Location:../Views/adminView.php");
-    }
-    if ($songFileType != "mp3" && $songFileType != "wav" && $songFileType != "aac") {
-        $uploadOk_song = 0;
-        $errMsg = "WrongSongFormat";
-        createErrCookie($errMsg);
-        header("Location:../Views/adminView.php");
-    }
-    if (file_exists($target_file_img)) {
-        $uploadOk = 0;
-        $errMsg = "ImgExists";
-        createErrCookie($errMsg);
-        header("Location:../Views/adminView.php");
-    }
-    if (file_exists($target_file_song)) {
-        $uploadOk_song = 0;
-        $errMsg = "SongExists";
-        createErrCookie($errMsg);
-        header("Location:../Views/adminView.php");
-    }
-    if ($uploadOk == 0 || $uploadOk_song == 0) {
-        $errMsg = "Error";
-        createErrCookie($errMsg);
-        header("Location:../Views/adminView.php");
-    } else {
+    // if ($check !== false) {
+    //     $uploadOk = 1;
+    // } else {
+    //     $uploadOk = 0;
+    //     $errMsg = "FileNotImg";
+    //     createErrCookie($errMsg);
+    //     header("Location:../Views/adminView.php");
+    // }
+    // if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    //     $uploadOk = 0;
+    //     $errMsg = "WrongImgFormat";
+    //     createErrCookie($errMsg);
+    //     header("Location:../Views/adminView.php");
+    // }
+    // if ($songFileType != "mp3" && $songFileType != "wav" && $songFileType != "aac") {
+    //     $uploadOk_song = 0;
+    //     $errMsg = "WrongSongFormat";
+    //     createErrCookie($errMsg);
+    //     header("Location:../Views/adminView.php");
+    // }
+    // if (file_exists($target_file_img)) {
+    //     $uploadOk = 0;
+    //     $errMsg = "ImgExists";
+    //     createErrCookie($errMsg);
+    //     header("Location:../Views/adminView.php");
+    // }
+    // if (file_exists($target_file_song)) {
+    //     $uploadOk_song = 0;
+    //     $errMsg = "SongExists";
+    //     createErrCookie($errMsg);
+    //     header("Location:../Views/adminView.php");
+    // }
+    // if ($uploadOk == 0 || $uploadOk_song == 0) {
+    //     $errMsg = "Error";
+    //     createErrCookie($errMsg);
+    //     header("Location:../Views/adminView.php");
+    // } else {
         try {
             move_uploaded_file($_FILES["createImagePath"]["tmp_name"], $target_file_img);
             move_uploaded_file($_FILES["createAudioPath"]["tmp_name"], $target_file_song);
@@ -75,7 +75,7 @@ if (isset($_POST['createSongBtn'])) {
             $errMsg = "Error";
             createErrCookie($errMsg);
             header("Location:../Views/adminView.php");
-        }
+    //     }
     }
 }
 

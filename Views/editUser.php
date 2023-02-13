@@ -14,7 +14,7 @@ for ($i = 0; $i < 50; $i++) {
         // echo "Edit user with: editId_" . $i;
         // echo '<br>';
         $data = $select->selectUserById($conn, $i);
-        $userID = $data['ID'];
+        $userID = $data['Id'];
         $userName = $data['Username'];
         $userEmail = $data['Email'];
         $userRole = $data['Role'];
@@ -57,7 +57,7 @@ if ($_SESSION['userRole'] == 0) {
                 }
                 ?>
                 <label for="text" id="errorMsg" class="errorMsg" style="display: none;">*Username, Email or Role is incorrect</label>
-                <input type="text" id="userId" name="userId" value=<?php echo $userID ?> style="display: none;">
+                <input type="text" id="userId" name="userId" value=<?php echo $userID ?> />
                 <label for="editUserEmail" id="editUserRole" class="userName infoLabel">User:</label>
                 <input type="text" id="username" name="userName" value=<?php echo $userName ?> style="display: none;">
                 <input type="text" id="username" disabled placeholder=<?php echo $userName ?> onchange="validateUsername()">
